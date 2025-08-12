@@ -4,17 +4,17 @@ import { ExternalLink, Github, Eye, ArrowRight } from 'lucide-react';
 
 const Projects: React.FC = () => {
   const projects = [
-    // {
-    //   id: 1,
-    //   title: 'Multi-OS Activity Tracker',
-    //   description: 'A cross-platform app to track user activities (Work, Private, Idle) across Linux, macOS, and Windows with real-time data visualization.',
-    //   category: 'fullstack',
-    //   image: 'https://images.pexels.com/photos/3182763/pexels-photo-3182763.jpeg?auto=compress&cs=tinysrgb&w=800',
-    //   technologies: ['React', 'Node.js', 'Express.js', 'MongoDB', 'Socket.io', 'Chart.js', 'Deepseek API', 'Google Gemini API'],
-    //   liveUrl: 'https://moat-glr5.vercel.app/',
-    //   githubUrl: '#',
-    //   featured: true
-    // },
+    {
+      id: 1,
+      title: 'WebCultivate',
+      description: 'WebCultivate is a web development service project aimed at creating modern, responsive, and SEO-friendly websites for small businesses and professionals. The project focused on delivering custom web solutions that enhance online presence, improve user experience, and drive engagement.',
+      category: 'fullstack',
+      // image: 'https://images.pexels.com/photos/3182763/pexels-photo-3182763.jpeg?auto=compress&cs=tinysrgb&w=800',
+      technologies: ['React', 'Node.js', 'Express.js', 'MongoDB', 'Socket.io', 'Chart.js', 'Deepseek API', 'Google Gemini API'],
+      // liveUrl: 'https://moat-glr5.vercel.app/',
+      githubUrl: '#',
+      featured: true
+    },
     // {
     //   id: 2,
     //   title: 'ChargeTrack - EV Charging Station Manager',
