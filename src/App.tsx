@@ -86,6 +86,10 @@ function App() {
       className={`min-h-screen transition-colors duration-500 ${
         darkMode ? "dark bg-gray-900" : "bg-white"
       }`}
+      style={{
+        WebkitOverflowScrolling: 'touch',
+        overflowX: 'hidden'
+      }}
     >
       {/* Header */}
       <motion.header
