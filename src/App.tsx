@@ -168,7 +168,7 @@ function App() {
             id="about"
             initial="offscreen"
             whileInView="onscreen"
-            viewport={{ once: true, amount: 0.3 }}
+            viewport={{ once: true, amount: 0.1 }}
             variants={sectionVariants}
           >
             <About />
@@ -178,7 +178,7 @@ function App() {
             id="experience"
             initial="offscreen"
             whileInView="onscreen"
-            viewport={{ once: true, amount: 0.3 }}
+            viewport={{ once: true, amount: 0.1 }}
             variants={sectionVariants}
           >
             <Experience />
@@ -188,7 +188,7 @@ function App() {
             id="skills"
             initial="offscreen"
             whileInView="onscreen"
-            viewport={{ once: true, amount: 0.3 }}
+            viewport={{ once: true, amount: 0.1 }}
             variants={sectionVariants}
           >
             <Skills />
@@ -198,7 +198,7 @@ function App() {
             id="projects"
             initial="offscreen"
             whileInView="onscreen"
-            viewport={{ once: true, amount: 0.3 }}
+            viewport={{ once: true, amount: 0.1 }}
             variants={sectionVariants}
           >
             <Projects />
@@ -208,7 +208,7 @@ function App() {
             id="contact"
             initial="offscreen"
             whileInView="onscreen"
-            viewport={{ once: true, amount: 0.3 }}
+            viewport={{ once: true, amount: 0.1 }}
             variants={sectionVariants}
           >
             <Contact />
@@ -225,7 +225,7 @@ function App() {
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 1 }}
-          viewport={{ once: false, amount: 0.3 }}
+          viewport={{ once: false, amount: 0.1 }}
           className="relative max-w-7xl mx-auto px-6"
         >
           {/* ================= TOP GRID ================= */}
