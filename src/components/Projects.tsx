@@ -1,9 +1,10 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ExternalLink, Github } from "lucide-react";
 
 const Projects: React.FC = () => {
   const [activeFilter, setActiveFilter] = useState("All");
+  const [visibleCount, setVisibleCount] = useState(3);
 
   const filters = ["All", "Full Stack", "Static", "Portfolios"];
 
@@ -14,8 +15,8 @@ const Projects: React.FC = () => {
       desc: "Official business website for WebCultivate Software Solutions showcasing IT services, client solutions, SEO optimization, hosting setup, and lead generation system.",
       image:
         "https://res.cloudinary.com/deq5qb9vv/image/upload/v1770182501/webcultivate_t9givb.webp",
-      github: "#", // optional
-      live: "https://webcultivate.com", // replace if different
+      github: "#",
+      live: "https://webcultivate.com",
     },
     {
       title: "LodgifyMe (Hotel Listing Platform)",
@@ -36,13 +37,31 @@ const Projects: React.FC = () => {
       live: "#",
     },
     {
+      title: "Full E-Commerce Website",
+      category: "Full Stack",
+      desc: "Complete E-commerce platform with product management, cart, secure payments, order tracking, user authentication, and admin dashboard for inventory, users, and sales analytics.",
+      image:
+        "https://res.cloudinary.com/deq5qb9vv/image/upload/v1771297970/Screenshot_2026-02-17_083643_uaw0up.png",
+      github: "#",
+      live: "#",
+    },
+    {
+      title: "Real Estate Property Management System",
+      category: "Full Stack",
+      desc: "Advanced real estate platform for property listing, buying, renting, and management with user authentication, property search filters, image uploads, booking system, and admin dashboard for managing agents, properties, and customer inquiries.",
+      image:
+        "https://res.cloudinary.com/deq5qb9vv/image/upload/v1771297970/Screenshot_2026-02-17_081724_ngqxs9.png",
+      github: "#",
+      live: "#",
+    },
+    {
       title: "Vastuanand Real Estate Website",
       category: "Static",
       desc: "Professional real estate website with property listings, enquiry forms, SEO optimization, and mobile-friendly design.",
       image:
         "https://res.cloudinary.com/deq5qb9vv/image/upload/v1770182501/vastuanand_bmawgw.webp",
-      github: "#", // optional
-      live: "https://www.vastuanandm.com", // add your live website link
+      github: "#",
+      live: "https://www.vastuanandm.com",
     },
     {
       title: "Pioneershub IT Consultant Website",
@@ -50,38 +69,35 @@ const Projects: React.FC = () => {
       desc: "Professional business website for an IT consulting firm showcasing services, client solutions, contact forms, and digital presence.",
       image:
         "https://res.cloudinary.com/deq5qb9vv/image/upload/v1770182501/pioneershub_iscjne.webp",
-      github: "#", // optional
-      live: "https://www.pioneershub.in", // add live link if available
+      github: "#",
+      live: "https://www.pioneershub.in",
     },
-
     {
       title: "WedClicks PhotoStudio Website",
       category: "Static",
       desc: "Responsive wedding photography website with modern UI, gallery, and contact section.",
       image:
         "https://res.cloudinary.com/deq5qb9vv/image/upload/v1770182975/wedclicks_xhunbs.webp",
-      github: "#", // optional
-      live: "https://www.wedclicks.in", // add your live link
+      github: "#",
+      live: "https://www.wedclicks.in",
     },
-
     {
       title: "Shubhmilanfilms PhotoStudio Website",
       category: "Static",
       desc: "Professional photography studio website with portfolio showcase and client enquiry system.",
       image:
         "https://res.cloudinary.com/deq5qb9vv/image/upload/v1770183808/shubhmilanfilms_j7bb4t.webp",
-      github: "#", // optional
-      live: "https://www.shubhmilanfilms.com", // add your live link
+      github: "#",
+      live: "https://www.shubhmilanfilms.com",
     },
-
     {
       title: "Personal Portfolio Website",
       category: "Portfolios",
       desc: "My personal portfolio showcasing projects, skills, experience, animations, SEO optimization, and responsive modern UI design.",
       image:
         "https://res.cloudinary.com/deq5qb9vv/image/upload/v1770183249/TejasMehar_scgdqd.webp",
-      github: "https://github.com/TejuMehar", // optional
-      live: "https://tejas-mehar-portfolio-july.netlify.app/", // replace with your real domain
+      github: "https://github.com/TejuMehar",
+      live: "https://tejas-mehar-portfolio-july.netlify.app/",
     },
     {
       title: "Prarthana Tolmare Portfolio Website",
@@ -89,30 +105,46 @@ const Projects: React.FC = () => {
       desc: "Personal portfolio website for Prarthana Tolmare featuring professional profile, career highlights, responsive design, and modern UI.",
       image:
         "https://res.cloudinary.com/deq5qb9vv/image/upload/v1770183248/PrarthanaTolmare_jhkuzx.webp",
-      github: "#", // optional
-      live: "https://prarthana-tolmare-portfolio.netlify.app/", // add real link if available
+      github: "#",
+      live: "https://prarthana-tolmare-portfolio.netlify.app/",
+    },
+    {
+      title: "Sonali Jawarkar Portfolio Website",
+      category: "Portfolios",
+      desc: "Personal portfolio website showcasing skills, projects, achievements, and contact information with modern UI design, responsive layout, smooth animations, and integrated contact form.",
+      image:
+        "https://res.cloudinary.com/deq5qb9vv/image/upload/v1771298065/Screenshot_2026-02-17_084405_qaarbt.png",
+      github: "#",
+      live: "#",
     },
   ];
 
+  // Reset visible projects when filter changes
+  useEffect(() => {
+    setVisibleCount(3);
+  }, [activeFilter]);
+
+  // Filter logic
   const filteredProjects =
     activeFilter === "All"
       ? projects
       : projects.filter((p) => p.category === activeFilter);
+
+  // Show limited projects
+  const visibleProjects = filteredProjects.slice(0, visibleCount);
 
   return (
     <section
       id="projects"
       className="
         relative py-32
-
         bg-gradient-to-br
         from-white via-blue-50 to-purple-50
         dark:from-slate-950 dark:via-slate-900 dark:to-black
       "
     >
       <div className="max-w-7xl mx-auto px-6">
-        {/* ================= HEADER ================= */}
-
+        {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -134,8 +166,7 @@ const Projects: React.FC = () => {
           <div className="w-32 h-1 mx-auto bg-gradient-to-r from-blue-500 to-purple-500 rounded-full" />
         </motion.div>
 
-        {/* ================= FILTER BUTTONS ================= */}
-
+        {/* Filters */}
         <div className="flex justify-center gap-4 mb-16 flex-wrap">
           {filters.map((filter) => (
             <motion.button
@@ -145,7 +176,6 @@ const Projects: React.FC = () => {
               onClick={() => setActiveFilter(filter)}
               className={`
                 px-6 py-2 rounded-full font-semibold transition
-
                 ${
                   activeFilter === filter
                     ? "bg-gradient-to-r from-blue-600 to-purple-600 text-white shadow-lg"
@@ -158,11 +188,10 @@ const Projects: React.FC = () => {
           ))}
         </div>
 
-        {/* ================= PROJECT GRID ================= */}
-
+        {/* Grid */}
         <motion.div layout className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           <AnimatePresence>
-            {filteredProjects.map((project, i) => (
+            {visibleProjects.map((project) => (
               <motion.div
                 key={project.title}
                 layout
@@ -173,12 +202,9 @@ const Projects: React.FC = () => {
                 whileHover={{ y: -10 }}
                 className="
                   group rounded-3xl overflow-hidden
-
                   bg-white dark:bg-white/5
                   border border-gray-200 dark:border-white/10
-
                   shadow-xl dark:shadow-none
-                  backdrop-blur-xl
                 "
               >
                 {/* Image */}
@@ -186,13 +212,8 @@ const Projects: React.FC = () => {
                   <img
                     src={project.image}
                     alt={project.title}
-                    className="
-                      w-full h-full object-cover
-                      group-hover:scale-110 transition duration-700
-                    "
+                    className="w-full h-full object-cover group-hover:scale-110 transition duration-700"
                   />
-
-                  <div className="absolute inset-0 bg-black/30 opacity-0 group-hover:opacity-100 transition" />
                 </div>
 
                 {/* Content */}
@@ -214,7 +235,7 @@ const Projects: React.FC = () => {
                     <a
                       href={project.github}
                       target="_blank"
-                      className="flex items-center gap-1 text-sm text-gray-700 dark:text-gray-300 hover:text-blue-500"
+                      className="flex items-center gap-1 text-sm hover:text-blue-500"
                     >
                       <Github size={16} />
                       Code
@@ -223,7 +244,7 @@ const Projects: React.FC = () => {
                     <a
                       href={project.live}
                       target="_blank"
-                      className="flex items-center gap-1 text-sm text-gray-700 dark:text-gray-300 hover:text-blue-500"
+                      className="flex items-center gap-1 text-sm hover:text-blue-500"
                     >
                       <ExternalLink size={16} />
                       Live
@@ -234,6 +255,25 @@ const Projects: React.FC = () => {
             ))}
           </AnimatePresence>
         </motion.div>
+
+        {/* View More Button */}
+        {visibleCount < filteredProjects.length && (
+          <div className="text-center mt-16">
+            <motion.button
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              onClick={() => setVisibleCount((prev) => prev + 3)}
+              className="
+                px-8 py-3 rounded-full font-semibold
+                bg-gradient-to-r from-blue-600 to-purple-600
+                text-white shadow-lg
+                hover:shadow-xl transition
+              "
+            >
+              View More Projects
+            </motion.button>
+          </div>
+        )}
       </div>
     </section>
   );

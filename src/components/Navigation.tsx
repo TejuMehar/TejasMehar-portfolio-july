@@ -44,9 +44,10 @@ const Navigation: React.FC<NavigationProps> = ({
   return (
     <nav
       className={`${className} ${
-        mobile ? "flex flex-col space-y-2" : "flex space-x-4"
+        mobile ? "flex flex-col space-y-2" : "flex items-center space-x-4"
       }`}
     >
+      {/* Section Links */}
       {navItems.map((item) => {
         const isActive = activeSection === item.id;
 
@@ -60,7 +61,6 @@ const Navigation: React.FC<NavigationProps> = ({
               relative px-4 py-2 font-medium
               transition-colors duration-200
               ${mobile ? "w-full text-left" : "text-center"}
-
               ${
                 isActive
                   ? "text-blue-600 dark:text-blue-400"
@@ -68,10 +68,8 @@ const Navigation: React.FC<NavigationProps> = ({
               }
             `}
           >
-            {/* Text Wrapper */}
             <span className="relative inline-block pb-1">{item.label}</span>
 
-            {/* Mobile Left Bar */}
             {isActive && mobile && (
               <motion.span
                 layoutId="activeIndicator"
@@ -86,6 +84,23 @@ const Navigation: React.FC<NavigationProps> = ({
           </motion.button>
         );
       })}
+
+      {/* 🔥 Book Session Button */}
+      <motion.a
+        href="https://topmate.io/tejasmehar"
+        target="_blank"
+        rel="noopener noreferrer"
+        whileHover={{ scale: mobile ? 1 : 1.05 }}
+        whileTap={{ scale: 0.95 }}
+        className={`
+          px-5 py-2 rounded-full font-semibold transition
+          ${mobile ? "w-full text-center mt-2" : ""}
+          bg-gradient-to-r from-blue-600 to-purple-600
+          text-white shadow-lg hover:shadow-xl
+        `}
+      >
+        🚀 Book Session
+      </motion.a>
     </nav>
   );
 };

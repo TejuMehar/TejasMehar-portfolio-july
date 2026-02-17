@@ -87,8 +87,8 @@ function App() {
         darkMode ? "dark bg-gray-900" : "bg-white"
       }`}
       style={{
-        WebkitOverflowScrolling: 'touch',
-        overflowX: 'hidden'
+        WebkitOverflowScrolling: "touch",
+        overflowX: "hidden",
       }}
     >
       {/* Header */}
@@ -308,11 +308,11 @@ function App() {
                 link: "mailto:tejasmhear7@gmail.com",
                 label: "Email",
               },
-              {
-                icon: "📞",
-                link: "tel:+917447746247",
-                label: "Call",
-              },
+              // {
+              //   icon: "📞",
+              //   link: "tel:+917447746247",
+              //   label: "Call",
+              // },
             ].map((social) => (
               <motion.a
                 key={social.label}

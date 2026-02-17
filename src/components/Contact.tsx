@@ -59,12 +59,12 @@ const Contact: React.FC = () => {
       value: "tejasmhear7@gmail.com",
       href: "mailto:tejasmhear7@gmail.com",
     },
-    {
-      icon: Phone,
-      title: "Phone",
-      value: "+91 7447746247",
-      href: "tel:+917447746247",
-    },
+    // {
+    //   icon: Phone,
+    //   title: "Phone",
+    //   value: "+91 7447746247",
+    //   href: "tel:+917447746247",
+    // },
     {
       icon: MapPin,
       title: "Location",
