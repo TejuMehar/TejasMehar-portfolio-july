@@ -43,7 +43,7 @@ const Projects: React.FC = () => {
       image:
         "https://res.cloudinary.com/deq5qb9vv/image/upload/v1771297970/Screenshot_2026-02-17_083643_uaw0up.png",
       github: "#",
-      live: "#",
+      live: "https://e-com-demo-7aoa.onrender.com/",
     },
     {
       title: "Real Estate Property Management System",
